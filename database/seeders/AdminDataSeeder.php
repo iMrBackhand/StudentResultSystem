@@ -28,5 +28,14 @@ class AdminDataSeeder extends Seeder
             'photo' => 'image.jpg',
             'password' => Hash::make('111')
         ]);
+        DB::table('users')->insert([
+            'name' => 'Test',
+            'email' => 'norbertojrmgarte@gmail.com',
+            'photo' => 'image.jpg',
+            'password' => Hash::make('111')
+        ]);
+
+
+
     }
 }

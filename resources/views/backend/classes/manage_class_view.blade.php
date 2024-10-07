@@ -49,11 +49,16 @@
                 <td>{{ $class->created_at }}</td>
 
                 {{-- for styling the button --}}
-                <td style="text-align: center;font-size: 20px">
+                <td style="text-align: center; font-size: 20px;">
                     {{-- for selecting single user --}}
-                    <a href="{{ route('edit.class',$class->id) }}" style="color: #444; margin-right: 30px"><i class="fas fa-edit"></i></a>
-                    <a href="{{ route('delete.class',$class->id) }}" id="delete" style="color:red"><i class="fas fa-trash-alt"></i></a>
+                    <a href="{{ route('edit.class', $class->id) }}" style="color: #444; margin-right: 30px;" title="Edit">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a href="{{ route('delete.class', $class->id) }}" id="delete" style="color: red;" title="Delete">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
                 </td>
+
             </tr>
 
                 @endforeach

@@ -52,7 +52,7 @@
             <label for="example-email-input" class="col-sm-2 col-form-label"></label>
             <div class="col-sm-10">
                 {{-- checking if no photo upload it upload a photo --}}
-                <img id="ShowImage" src="{{ empty($adminData->photo)? asset('uploads/d.jpg') : asset('uploads/admin_profiles/'. $adminData->photo) }}" alt="avatar-4" class="rounded avatar-md">
+                <img id="ShowImage" src="{{ empty($adminData->photo)? asset('uploads/no_uploaded.png') : asset('uploads/admin_profiles/'. $adminData->photo) }}" alt="avatar-4" class="rounded avatar-md">
             </div>
         </div>
 

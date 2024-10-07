@@ -39,6 +39,7 @@ class AdminController extends Controller
 
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
+
             // this is for not creating but replacing the image into new upload image
             @unlink(public_path('uploads/admin_profiles/' . $admin->photo));
             $imageName = date('YmdHi') . ' ' . $file->getClientOriginalName(); //20240202.admin.png

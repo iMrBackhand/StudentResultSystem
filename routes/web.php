@@ -4,10 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\ClassesController;
+use App\Http\Controllers\backend\StudentController;
 use App\Http\Controllers\backend\SubjectController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('dashboard');
 });
 
 Route::get('/dashboard', function () {
@@ -44,6 +45,22 @@ Route::controller(SubjectController::class)->group(function () {
     Route::get('edit/subject/{id}', 'EditSubject')->name('edit.subject');
     Route::post('update/subject', 'UpdateSubject')->name('update.subject');
     Route::get('delete/subject/{id}', 'DeleteSubject')->name('delete.subject');
+
+
+    // SUBJECT COMBINATION
+    Route::get('add/subject/combination', 'AddSubjectCombination')->name('add.subject.combination');
+    Route::post('store/subject/combination', 'StoreSubjectCombination')->name('store.subject.combination');
+    Route::get('manage/subject/combination', 'ManageSubjectCombination')->name('manage.subject.combination');
+    Route::get('deactivate/subject/combination/{id}', 'DeactivateSubjectCombination')->name('deactivate.subject.combination');
+});
+
+//STUDENT
+Route::controller(StudentController::class)->group(function () {
+    Route::get('add/student', 'AddStudent')->name('add.student');
+    Route::post('store/student', 'StoreStudent')->name('store.student');
+    Route::get('manage/students', 'ManageStudents')->name('manage.students');
+    Route::get('edit/student/{id}', 'EditStudent')->name('edit.student');
+    Route::post('update/student', 'UpdateStudent')->name('update.student');
 });
 
 

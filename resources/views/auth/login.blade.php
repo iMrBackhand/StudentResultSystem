@@ -46,19 +46,17 @@
                                 </div>
                             </div>
 
-                            <div class="form-group mb-3 row">
-                                <div class="col-12">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                        <label class="form-label ms-1" for="customCheck1">Remember me</label>
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class="form-group mb-3 text-center row mt-3 pt-1">
                                 <div class="col-12">
                                     <button class="btn btn-info w-100 waves-effect waves-light" type="submit">Log In</button>
                                 </div>
+                            </div>
+                            <div class="flex items-center justify-end mt-4">
+                                @if (Route::has('password.request'))
+                                    <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
+                                        {{ __('Forgot your password?') }}
+                                    </a>
+                                @endif
                             </div>
                         </form>
                     </div>

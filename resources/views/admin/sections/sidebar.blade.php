@@ -24,7 +24,7 @@
 
                 <li>
                     <a href="{{ route('dashboard') }}" class="waves-effect">
-                        <i class="ri-dashboard-line"></i><span class="badge rounded-pill bg-success float-end">3</span>
+                        <i class="fas fa-home"></i><span class="badge rounded-pill bg-success float-end">3</span>
                         <span>Dashboard</span>
                     </a>
                 </li>
@@ -35,7 +35,7 @@
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-account-circle-line"></i>
+                        <i class="fas fa-user-edit"></i>
                         <span>Student Classes</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -46,17 +46,26 @@
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-profile-line"></i>
+                        <i class="fas fa-book"></i>
                         <span>Subjects</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('create.subject') }}">Create Subject</a></li>
                         <li><a href="{{ route('manage.subject') }}">Manage Subject</a></li>
+                        <li><a href="{{ route('add.subject.combination') }}">Add Subject Combination</a></li>
+                        <li><a href="{{ route('manage.subject.combination') }}">Manage Subject Combination</a></li>
                     </ul>
                 </li>
-
-
-
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="fas fa-user-edit"></i>
+                        <span>Student </span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('add.student') }}">Add Student</a></li>
+                        <li><a href="{{ route('manage.students') }}">Manage Students</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <!-- Sidebar -->
