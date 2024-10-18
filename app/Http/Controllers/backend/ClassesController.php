@@ -37,7 +37,8 @@ class ClassesController extends Controller
     {
         // this method is getting all the content in the table
         $classes = classes::all();
-        return view('backend.classes.manage_class_view', compact('classes'));
+        $totalClasses = classes::count();
+        return view('backend.classes.manage_class_view', compact('classes','totalClasses'));
     } // end method
 
     public function EditClass($id)

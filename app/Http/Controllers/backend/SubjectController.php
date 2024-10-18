@@ -36,7 +36,8 @@ class SubjectController extends Controller
     public function ManageSubject()
     {
         $subjects = Subject::all();
-        return view('backend.subject.manage_subjects_view', compact('subjects'));
+        $totalSubjects = Subject::count();
+        return view('backend.subject.manage_subjects_view', compact('subjects','totalSubjects'));
     } // end method
 
     public function EditSubject($id)

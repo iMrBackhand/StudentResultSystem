@@ -13,6 +13,10 @@ use App\Http\Controllers\frontend\StudentResultController;
 Route::get('/',[StudentResultController::class,'index'])->name('index');
 Route::post('search/result',[StudentResultController::class,'SearchResult'])->name('search.result');
 
+//Start of middleware
+Route::middleware('auth')->group(function(){
+
+
 Route::get('/dashboard', function () {
     return view('admin.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -85,6 +89,7 @@ Route::controller(UserController::class)->group(function () {
     Route::get('user', 'User')->name('user');
 });
 
+}); //end of middleware
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

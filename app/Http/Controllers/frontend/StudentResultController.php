@@ -21,7 +21,7 @@ class StudentResultController extends Controller
     {
         $roll_id = $request->roll_id;
         $class_id = $request->class_id;
-        $student = Student::where('roll_id',$roll_id)->where('class_d',$class_id)->first();
+        $student = Student::where('roll_id',$roll_id)->where('class_id',$class_id)->first();
 
 
         if (!$student) {
@@ -34,5 +34,14 @@ class StudentResultController extends Controller
         }
 
         $result = Result::where('student_id',$student->id)->get();
+        if (count($result)===0) {
+            $notification = [
+                'message' => 'Sorry Result Not Declare Yet!',
+                'alert-type'=>'info'
+            ];
+            return redirect()->back()->with($notification);
+        }
+
+        return view('frontend.student_result',compact('result'));
     }
 }
