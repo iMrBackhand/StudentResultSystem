@@ -1,15 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\backend\AdminController;
+use App\Http\Controllers\backend\ResultController;
 use App\Http\Controllers\backend\ClassesController;
 use App\Http\Controllers\backend\StudentController;
 use App\Http\Controllers\backend\SubjectController;
+use App\Http\Controllers\frontend\StudentResultController;
 
-Route::get('/', function () {
-    return redirect()->route('dashboard');
-});
+Route::get('/',[StudentResultController::class,'index'])->name('index');
+Route::post('search/result',[StudentResultController::class,'SearchResult'])->name('search.result');
 
 Route::get('/dashboard', function () {
     return view('admin.index');
@@ -61,6 +63,26 @@ Route::controller(StudentController::class)->group(function () {
     Route::get('manage/students', 'ManageStudents')->name('manage.students');
     Route::get('edit/student/{id}', 'EditStudent')->name('edit.student');
     Route::post('update/student', 'UpdateStudent')->name('update.student');
+    Route::get('delete/student/{id}', 'DeleteStudent')->name('delete.student');
+});
+
+//RESULT ALL ROUTES
+Route::controller(ResultController::class)->group(function () {
+    Route::get('add/result', 'AddResult')->name('add.result');
+    Route::post('store/result', 'StoreResult')->name('store.result');
+    Route::get('manage/results', 'ManageResults')->name('manage.results');
+    Route::get('edit/result/{id}', 'EditResult')->name('edit.result');
+    Route::post('update/result', 'UpdateResult')->name('update.result');
+    Route::get('delete/result/{id}', 'DeleteResult')->name('delete.result');
+
+    //ajax request all routes
+    Route::get('fetch/student', 'FetchStudent')->name('fetch.student');
+    Route::get('check/student/result', 'FetchStudentResult')->name('check.student.result');
+});
+
+// Account
+Route::controller(UserController::class)->group(function () {
+    Route::get('user', 'User')->name('user');
 });
 
 

@@ -48,12 +48,12 @@
                             </td>
                             <td>{{ $student->name }}</td>
                             <td>{{ $student->roll_id }}</td>
-                            <td>{{ $student->class->class_name }}</td>
+                            <td>{{ $student->class ? $student->class->class_name : 'N/A' }}</td>
                             <td>{{ $student->created_at->format('F d, Y') }}</td>
                             <td>{{ $student->status }}</td>
                             <td style="text-align: center; font-size: 20px">
                                 <a href="{{ route('edit.student',$student->id) }}" style="color: #444; margin-right: 30px"><i class="fas fa-edit"></i></a>
-                                 <a href="{{ route('delete.subject',$student->id) }}" id="delete" style="color:red"><i class="fas fa-trash-alt"></i></a>
+                                 <a href="{{ route('delete.student',$student->id) }}" id="delete" style="color:red"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     @endforeach

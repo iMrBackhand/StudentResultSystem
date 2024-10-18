@@ -8,11 +8,13 @@
         @endphp
         <div class="user-profile text-center mt-3">
             <div class="">
-                <img src="{{ empty($adminData->photo)? asset('uploads/d.jpg') : asset('uploads/admin_profiles/'. $adminData->photo) }}" alt="" class="avatar-md rounded-circle">
+                <img src="{{ empty($adminData->photo) ? asset('uploads/d.jpg') : asset('uploads/admin_profiles/' . $adminData->photo) }}"
+                    alt="" class="avatar-md rounded-circle">
             </div>
             <div class="mt-3">
                 <h4 class="font-size-16 mb-1">{{ $adminData->name }}</h4>
-                <span class="text-muted"><i class="ri-record-circle-line align-middle font-size-14 text-success"></i> {{ $adminData->email }}</span>
+                <span class="text-muted"><i class="ri-record-circle-line align-middle font-size-14 text-success"></i>
+                    {{ $adminData->email }}</span>
             </div>
         </div>
 
@@ -58,7 +60,7 @@
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="fas fa-user-edit"></i>
+                        <i class="fas fa-user-graduate"></i>
                         <span>Student </span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -66,8 +68,30 @@
                         <li><a href="{{ route('manage.students') }}">Manage Students</a></li>
                     </ul>
                 </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="far fa-list-alt"></i>
+                        <span>Results</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('add.result') }}">Add Result</a></li>
+                        <li><a href="{{ route('manage.results') }}">Manage Results</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Account</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('user') }}">User Account</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <!-- Sidebar -->
     </div>
+
 </div>

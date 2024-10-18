@@ -31,5 +31,23 @@ class SubjectDataSeeder extends Seeder
             'created_at' => now(),  // Set created_at
             'updated_at' => now(),  // Set updated_at
         ]);
+        DB::table('subjects')->insert([ // Change 'classes' to 'subjects'
+            'subject_name' => 'System Administration',
+            'subject_code' => 'ITEC 55',
+            'created_at' => now(),  // Set created_at
+            'updated_at' => now(),  // Set updated_at
+        ]);
+        DB::table('subjects')->insert([ // Change 'classes' to 'subjects'
+            'subject_name' => 'Method of Research',
+            'subject_code' => 'ITEC 116',
+            'created_at' => now(),  // Set created_at
+            'updated_at' => now(),  // Set updated_at
+        ]);
+        DB::table('subjects')->insert([ // Change 'classes' to 'subjects'
+            'subject_name' => 'Advance Database',
+            'subject_code' => 'DCIT 26',
+            'created_at' => now(),  // Set created_at
+            'updated_at' => now(),  // Set updated_at
+        ]);
     }
 }

@@ -89,7 +89,7 @@ class SubjectController extends Controller
     public function AddSubjectCombination(Request $request)
     {
         $classes = classes::all();
-        $subjects = Subject::all();
+        $subjects = Subject::orderBy('subject_name', 'asc')->get();
         return view('backend.subject.add_subject_combination', compact('classes', 'subjects'));
 
     } //end method
@@ -147,4 +147,7 @@ class SubjectController extends Controller
             return redirect()->back()->with($notification);
         }
     }//end method
+
+
+
 }

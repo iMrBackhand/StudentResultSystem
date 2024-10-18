@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('name')->nullable();
             $table->string('email')->unique();
-            $table->string('role_id')->nullable();
+            $table->string('roll_id')->nullable();
             $table->string('class_id')->nullable();
             $table->string('dob')->nullable();
             $table->string('photo')->nullable();

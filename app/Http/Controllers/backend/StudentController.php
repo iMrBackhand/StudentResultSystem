@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\backend;
-use Carbon\Carbon;
-use App\Models\classes;
-use App\Models\Student;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\classes;
+use App\Models\Result;
+use App\Models\Student;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
@@ -20,6 +21,7 @@ class StudentController extends Controller
     {
 
         $student = new Student(); //because of this now we can access the table Students
+        // $student->column_name = $request->input_fieldName
         $student->name = $request->full_name;
         $student->email = $request->email;
         $student->roll_id = $request->roll_id;
@@ -93,4 +95,41 @@ class StudentController extends Controller
 
         return redirect()->route('manage.students')->with($notification);
     } //End Method
+
+    public function DeleteStudent($id)
+    {
+        // Find the student by ID
+        $student = Student::find($id);
+
+        // Check if the student exists
+        if (!$student) {
+            $notification = array(
+                'message' => 'Student Not Found',
+                'alert-type' => 'error'
+            );
+            return redirect()->route('manage.students')->with($notification);
+        }
+
+        // Check if the student has a photo and delete it
+        if (!empty($student->photo)) {
+            @unlink(public_path('uploads/student_photos/' . $student->photo));
+        }
+
+        // Delete related results for the student
+        Result::where('student_id', $student->id)->delete();
+
+        // Delete the student record
+        $student->delete();
+
+        // Prepare and return a success notification
+        $notification = array(
+            'message' => 'Student Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('manage.students')->with($notification);
+    }
+
+
+
 }
