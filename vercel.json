@@ -1,6 +1,11 @@
 {
-    "build": {
-        "command": "npm run build",
-        "outputDirectory": "public/build"
-    }
+    "builds": [
+        {
+            "src": "vite.config.js",
+            "use": "@vercel/static-build",
+            "config": {
+                "outputDirectory": "public/build"
+            }
+        }
+    ]
 }
